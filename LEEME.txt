@@ -1,0 +1,23 @@
+TAREAS Y CALIFICACIONES · VERSION GENERAL (Tareas-G) - paquete PWA (version 1.0.0-beta.2)
+Para todo el personal docente: cada quien arma su evaluacion (criterios y porcentajes),
+captura con botones y la app calcula los promedios. Companera de "Control de Asistencia".
+Repositorio sugerido: Tareas-G   Enlace: https://reguchis.github.io/Tareas-G/
+
+SUBIR A GITHUB PAGES
+Sube TODO el contenido de esta carpeta (no la carpeta dentro de otra): index.html, sw.js,
+version.json, manifest.webmanifest, LEEME.txt, icon-192.png e icon-512.png.
+La primera vez: Settings > Pages > Deploy from a branch > main / root.
+
+INSTALAR: abre el enlace con internet una vez, espera a que cargue y usa "Instalar aplicacion".
+Queda un icono verde "Tareas G", aparte de "Tareas" (Tareas-P30) y de Asistencia.
+
+PRIMER USO: Ajustes > Configuracion (nombre). Alumnos > "Traer alumnos de Asistencia" o
+"Agregar a mano". Calificar > "Crear evaluacion nueva".
+
+DATOS SEPARADOS
+Vive en el mismo sitio que Asistencia y Tareas-P30 (reguchis.github.io), pero guarda todo con
+nombre propio: base de datos "tareasg", copias sin internet "tareasg-app-..." (solo borra las suyas)
+y ajustes del navegador "tareasg.". Nunca escribe nada en Asistencia ni en Tareas-P30.
+
+ACTUALIZAR: reemplaza todos los archivos (incluido version.json), espera unos minutos y en la app:
+Ajustes > Actualizaciones > Buscar actualizacion. Los datos no se borran.
