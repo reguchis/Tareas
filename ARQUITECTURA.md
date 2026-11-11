@@ -1,6 +1,6 @@
 # Tareas y Calificaciones · versión general (Tareas-G) — arquitectura y modelo de datos
 
-Versión 1.0.0-beta.5 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
+Versión 1.0.0-beta.9 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
 
 ## Arquitectura
 - PWA en un solo `index.html` (HTML, CSS y JavaScript sin frameworks), más `sw.js`, `manifest.webmanifest`, `version.json`, `LEEME.txt` e íconos.
@@ -58,6 +58,17 @@ El `id` del criterio sale de su nombre (`c-tareas`), así que coincide entre apa
 - Tres reglas de fábrica: redondeo con 5.5 que sube a 6, «sin calificar no cuenta» y «en rojo menos de 6».
 - El Excel genérico es un `.xlsx` armado en la propia app (zip sin compresión, sin librerías ni macros), con una hoja por grupo y materia.
 - La exportación especial al libro del autor está detrás de una clave (huella FNV-1a, la misma de Asistencia). Se guarda solo en el aparato (`tareasg.xls`) y no viaja en respaldos ni en Mis dispositivos.
+
+## Cambios de la beta.9
+- Editor de evaluación (solo con el interruptor del libro encendido): `xpSug`/`xpGuess` proponen `xc` por el nombre del criterio (`XPG`) y `EXA` para un examen nuevo. Marca temporal `_xg` (propuesta); elegir a mano la borra y ya no se vuelve a proponer; `evSave` quita `_xg`. No propone una parte que ya usa otro criterio. Lo ya guardado no cambia.
+- Manual: «Con el libro de Excel activado» (sección 4), «Libro de calificaciones de Excel» (Ajustes) y «Algo no llega a mi libro de Excel» (problemas).
+
+## Cambios de la beta.8
+- Exportación especial al libro v34: código `PA2` (Part2, columna M) además de `PAR` (Part1, columna L); nombres Part1, Part2 y Homje.
+- `xcGuess`: «Participación 2», «Part 2» o «Part2» → `PA2`.
+- `xMig` (una vez por sesión, al abrir Calificar o exportar): si en un grupo, materia y parcial dos criterios mandan a `PAR`, el que termina en «2» (o el segundo) pasa a `PA2`. Usa `put`, así que viaja con Mis dispositivos.
+- `xPrep`: cada código de 0 a 1 admite una sola actividad incluida; si hay más, no exporta y dice cuáles.
+- Traer de Tareas-P30: acepta `PA2`; si el respaldo trae dos `PAR`, la segunda llega como `PA2`.
 
 ## Posibles extensiones
 - Calificación final con exámenes extraordinarios o recuperación.
