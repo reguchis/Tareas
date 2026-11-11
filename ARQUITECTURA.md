@@ -1,6 +1,6 @@
 # Tareas y Calificaciones · versión general (Tareas-G) — arquitectura y modelo de datos
 
-Versión 1.0.0-beta.2 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
+Versión 1.0.0-beta.5 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
 
 ## Arquitectura
 - PWA en un solo `index.html` (HTML, CSS y JavaScript sin frameworks), más `sw.js`, `manifest.webmanifest`, `version.json`, `LEEME.txt` e íconos.
