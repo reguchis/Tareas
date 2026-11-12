@@ -1,6 +1,6 @@
 # Tareas y Calificaciones · versión general (Tareas-G) — arquitectura y modelo de datos
 
-Versión 1.0.0-beta.16 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
+Versión 1.0.0-beta.17 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
 
 ## Arquitectura
 - PWA en un solo `index.html` (HTML, CSS y JavaScript sin frameworks), más `sw.js`, `manifest.webmanifest`, `version.json`, `LEEME.txt` e íconos.
@@ -58,6 +58,9 @@ El `id` del criterio sale de su nombre (`c-tareas`), así que coincide entre apa
 - Tres reglas de fábrica: redondeo con 5.5 que sube a 6, «sin calificar no cuenta» y «en rojo menos de 6».
 - El Excel genérico es un `.xlsx` armado en la propia app (zip sin compresión, sin librerías ni macros), con una hoja por grupo y materia.
 - La exportación especial al libro del autor está detrás de una clave (huella FNV-1a, la misma de Asistencia). Se guarda solo en el aparato (`tareasg.xls`) y no viaja en respaldos ni en Mis dispositivos.
+
+## Cambios de la beta.17
+- Hoja CE por parcial: `cfg.cep[pid]` y `cfg.cepU[pid]` (antes `cfg.ce` única: al abrir se copia a todos los parciales). `xceT(pid)`/`xceOf(s,pid)`; el editor, `evDif` y el aviso al exportar usan el parcial de la evaluación; Traer de Tareas-P30 usa el parcial elegido (`p30Pid`). Ajustes: selector de parcial (`XCP`), «Copiar a los demás parciales» (`xceCopy`). Mis dispositivos combina por parcial (gana el más reciente); el respaldo trae los parciales que este aparato no tiene.
 
 ## Cambios de la beta.16
 - «Importar de mi libro (hoja CE)»: `zipLee` (lector .zip mínimo con `DecompressionStream('deflate-raw')`), `xceLee` (hoja «CE» por workbook.xml + rels; filas por el nombre de la columna B = `XCL`; columnas por el encabezado de la fila 2, o C/D/E), `xceIn` (vista previa de cambios) y `xceAp` (guarda `cfg.ce`, `cfg.ceU`). No usa macros ni modifica el libro.
