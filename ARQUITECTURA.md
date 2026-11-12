@@ -1,6 +1,6 @@
 # Tareas y Calificaciones · versión general (Tareas-G) — arquitectura y modelo de datos
 
-Versión 1.0.0-beta.14 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
+Versión 1.0.0-beta.16 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
 
 ## Arquitectura
 - PWA en un solo `index.html` (HTML, CSS y JavaScript sin frameworks), más `sw.js`, `manifest.webmanifest`, `version.json`, `LEEME.txt` e íconos.
@@ -58,6 +58,13 @@ El `id` del criterio sale de su nombre (`c-tareas`), así que coincide entre apa
 - Tres reglas de fábrica: redondeo con 5.5 que sube a 6, «sin calificar no cuenta» y «en rojo menos de 6».
 - El Excel genérico es un `.xlsx` armado en la propia app (zip sin compresión, sin librerías ni macros), con una hoja por grupo y materia.
 - La exportación especial al libro del autor está detrás de una clave (huella FNV-1a, la misma de Asistencia). Se guarda solo en el aparato (`tareasg.xls`) y no viaja en respaldos ni en Mis dispositivos.
+
+## Cambios de la beta.16
+- «Importar de mi libro (hoja CE)»: `zipLee` (lector .zip mínimo con `DecompressionStream('deflate-raw')`), `xceLee` (hoja «CE» por workbook.xml + rels; filas por el nombre de la columna B = `XCL`; columnas por el encabezado de la fila 2, o C/D/E), `xceIn` (vista previa de cambios) y `xceAp` (guarda `cfg.ce`, `cfg.ceU`). No usa macros ni modifica el libro.
+
+## Cambios de la beta.15
+- Corrección: `cfgLee` descartaba `cfg.ce` (hoja CE) y `cfg.sem` (semáforo apagado) al abrir la app; ahora los conserva. `cfg.ceU` = cuándo se cambió la hoja CE: viaja con Mis dispositivos (gana la más reciente) y en el respaldo (si este aparato no tiene una propia).
+- Tabla de la hoja CE: filas Base (sin extras, en rojo si no da 100), Extras y Total, recalculadas al escribir (`xceTot`).
 
 ## Cambios de la beta.14
 - Mis dispositivos (`mdMovil`) usa `svMov()`: en la tablet en modo escritorio también comparte.
