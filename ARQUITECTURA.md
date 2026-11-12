@@ -1,6 +1,6 @@
 # Tareas y Calificaciones · versión general (Tareas-G) — arquitectura y modelo de datos
 
-Versión 1.0.0-beta.10 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
+Versión 1.0.0-beta.11 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
 
 ## Arquitectura
 - PWA en un solo `index.html` (HTML, CSS y JavaScript sin frameworks), más `sw.js`, `manifest.webmanifest`, `version.json`, `LEEME.txt` e íconos.
@@ -58,6 +58,13 @@ El `id` del criterio sale de su nombre (`c-tareas`), así que coincide entre apa
 - Tres reglas de fábrica: redondeo con 5.5 que sube a 6, «sin calificar no cuenta» y «en rojo menos de 6».
 - El Excel genérico es un `.xlsx` armado en la propia app (zip sin compresión, sin librerías ni macros), con una hoja por grupo y materia.
 - La exportación especial al libro del autor está detrás de una clave (huella FNV-1a, la misma de Asistencia). Se guarda solo en el aparato (`tareasg.xls`) y no viaja en respaldos ni en Mis dispositivos.
+
+## Cambios de la beta.11
+- Criterios de 1, ½ y 0: la columna del libro va en el criterio (`c.xc` ∈ `XLE`: PAR, PA2, HOM, HUM, SOC, CR, JAR, ALF). `CR` = Café/Reto (columna Q, 0 a 2): hasta 2 actividades; al exportar la 1.ª sale CAF y la 2.ª RET (`xCode(a,A)`), más de 2 → no exporta. En `calc`, CR promedia sobre `max(2, actividades)`, como (Café+Reto)/2 del libro. La actividad ya no elige columna; `c.xc===undefined` usa la columna antigua de la actividad (compatibilidad).
+- `xMig` (una vez por sesión): sube la columna de las actividades a su criterio y junta criterios Café y Reto separados en uno «Café/Reto» con la suma de sus porcentajes (mismo resultado).
+- Editor: lista de columnas en criterios de 1, ½ y 0; `xpSug` propone por el nombre del criterio (`xcGuessC`) y el porcentaje de la hoja CE si está vacío (`_wg` = porcentaje propuesto).
+- Hoja CE editable: `cfg.ce` (Ajustes › Libro de calificaciones de Excel › Porcentajes de mi hoja CE), 3 materias × 18 filas; de fábrica `XCE0` (libro v34). `xceT()`/`xceOf()` la usan; Traer de Tareas-P30 también (`p30X`).
+- «Guardar en el dispositivo» en lugar de «Guardar en el celular» (botón, avisos y manual).
 
 ## Cambios de la beta.10
 - `m5on`/`m5` (g_core): Final menor de 6 → 5, como la columna U del libro; opción de la evaluación (`m5:false` la apaga; ausente = encendida). También en el Final del semestre si todos sus parciales la tienen.
