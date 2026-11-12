@@ -1,6 +1,6 @@
 # Tareas y Calificaciones · versión general (Tareas-G) — arquitectura y modelo de datos
 
-Versión 1.0.0-beta.12 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
+Versión 1.0.0-beta.13 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
 
 ## Arquitectura
 - PWA en un solo `index.html` (HTML, CSS y JavaScript sin frameworks), más `sw.js`, `manifest.webmanifest`, `version.json`, `LEEME.txt` e íconos.
@@ -58,6 +58,9 @@ El `id` del criterio sale de su nombre (`c-tareas`), así que coincide entre apa
 - Tres reglas de fábrica: redondeo con 5.5 que sube a 6, «sin calificar no cuenta» y «en rojo menos de 6».
 - El Excel genérico es un `.xlsx` armado en la propia app (zip sin compresión, sin librerías ni macros), con una hoja por grupo y materia.
 - La exportación especial al libro del autor está detrás de una clave (huella FNV-1a, la misma de Asistencia). Se guarda solo en el aparato (`tareasg.xls`) y no viaja en respaldos ni en Mis dispositivos.
+
+## Cambios de la beta.13
+- Guardar o compartir (`svMov`, `svAsk`, `sOut`): la tablet Android que Chrome abre en modo escritorio también pregunta (pantalla táctil como puntero principal, `pointer:coarse`, o `userAgentData.mobile`); respaldo y Mis dispositivos ponen «Compartir…» primero; si compartir falla (no al cancelar), guarda y avisa. Texto «fuera del dispositivo». El mismo arreglo va en Asistencia 2.0.82, Ajedrez 1.3.24 y Tareas-P30 beta.47.
 
 ## Cambios de la beta.12
 - Semáforo en reportes (como la columna T del libro): `SEMK`/`SEMC`/`semK` con la calificación Real (Final en el final del semestre); verde ≥ 6, amarillo 5–5.9, naranja 4–4.9, rojo < 4. Franja + nombre teñido en `rPaint` (PNG/JPG/PDF), en `rHtml` (pantalla, con `background-image` para no tapar el fondo de las columnas fijas), en `rFi` (franja arriba) y en el Excel (estilos 17–28: relleno claro y borde izquierdo grueso). Línea en la clave. `cfg.sem===false` lo apaga (Ajustes › Parciales).
