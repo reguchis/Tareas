@@ -1,6 +1,6 @@
 # Tareas y Calificaciones · versión general (Tareas-G) — arquitectura y modelo de datos
 
-Versión 1.0.0-beta.13 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
+Versión 1.0.0-beta.14 · hecha sobre Tareas 1.0.0-beta.45 (Tareas-P30).
 
 ## Arquitectura
 - PWA en un solo `index.html` (HTML, CSS y JavaScript sin frameworks), más `sw.js`, `manifest.webmanifest`, `version.json`, `LEEME.txt` e íconos.
@@ -58,6 +58,11 @@ El `id` del criterio sale de su nombre (`c-tareas`), así que coincide entre apa
 - Tres reglas de fábrica: redondeo con 5.5 que sube a 6, «sin calificar no cuenta» y «en rojo menos de 6».
 - El Excel genérico es un `.xlsx` armado en la propia app (zip sin compresión, sin librerías ni macros), con una hoja por grupo y materia.
 - La exportación especial al libro del autor está detrás de una clave (huella FNV-1a, la misma de Asistencia). Se guarda solo en el aparato (`tareasg.xls`) y no viaja en respaldos ni en Mis dispositivos.
+
+## Cambios de la beta.14
+- Mis dispositivos (`mdMovil`) usa `svMov()`: en la tablet en modo escritorio también comparte.
+- `sOut`: si el aparato no deja compartir ese tipo de archivo (por ejemplo .xlsx en Android), guarda y avisa.
+- Mismo arreglo en Asistencia 2.0.83 (+ «Todos mis grupos» ya no cambia el grupo en pantalla mientras genera), Ajedrez 1.3.25 y Tareas-P30 beta.48.
 
 ## Cambios de la beta.13
 - Guardar o compartir (`svMov`, `svAsk`, `sOut`): la tablet Android que Chrome abre en modo escritorio también pregunta (pantalla táctil como puntero principal, `pointer:coarse`, o `userAgentData.mobile`); respaldo y Mis dispositivos ponen «Compartir…» primero; si compartir falla (no al cancelar), guarda y avisa. Texto «fuera del dispositivo». El mismo arreglo va en Asistencia 2.0.82, Ajedrez 1.3.24 y Tareas-P30 beta.47.
