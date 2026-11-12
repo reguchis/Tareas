@@ -1,7 +1,7 @@
 /* Tareas y Calificaciones (versión general, Tareas-G): copia sin internet. Vive en el mismo sitio que la app de Asistencia: solo borra SUS copias viejas (tareasg-app-…)
    y, si otra app le borrara la suya, la vuelve a guardar sola la siguiente vez que se abre con internet (heal).
    beta.7: lo que la app pide «sin copia» (revisar si hay versión nueva) va directo a internet. */
-const C='tareasg-app-1.0.0-beta.11',F=['index.html','manifest.webmanifest','icon-192.png','icon-512.png'];
+const C='tareasg-app-1.0.0-beta.12',F=['index.html','manifest.webmanifest','icon-192.png','icon-512.png'];
 self.addEventListener('install',e=>{e.waitUntil(caches.open(C).then(c=>Promise.all(F.map(u=>fetch(new Request(u,{cache:'reload'})).then(r=>{if(!r.ok)throw new Error(u);return c.put(u,r)})))).then(()=>self.skipWaiting()))});
 self.addEventListener('activate',e=>{e.waitUntil(caches.keys().then(k=>Promise.all(k.filter(x=>x!=C&&x.startsWith('tareasg-app-')).map(x=>caches.delete(x)))).then(()=>self.clients.claim()))});
 function heal(){return caches.open(C).then(c=>Promise.all(F.map(f=>c.match(f).then(r=>r||fetch(new Request(f,{cache:'reload'})).then(x=>x.ok?c.put(f,x):0)).catch(()=>0))))}
