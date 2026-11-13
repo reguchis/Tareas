@@ -1,7 +1,15 @@
-TAREAS Y CALIFICACIONES · VERSION GENERAL (Tareas-G) - paquete PWA (version 1.0.0-beta.24)
+TAREAS Y CALIFICACIONES - paquete PWA (version 1.0.0-beta.29)
 Para todo el personal docente: cada quien arma su evaluacion (criterios y porcentajes),
 captura con botones y la app calcula los promedios. Companera de "Control de Asistencia".
-Repositorio sugerido: Tareas-G   Enlace: https://reguchis.github.io/Tareas-G/
+Repositorio: Tareas   Enlace: https://reguchis.github.io/Tareas/
+CAMBIO DE REPOSITORIO (de Tareas-G a Tareas), una sola vez:
+  1. En la app actual: Ajustes > Exportar respaldo (tu seguro).
+  2. Crea el repositorio "Tareas", sube estos archivos y activa Pages (main / root).
+  3. Abre https://reguchis.github.io/Tareas/ , instala la app y revisa que esten tus grupos y calificaciones
+     (los datos se guardan por dominio, asi que la app nueva los encuentra).
+  4. Desinstala el icono viejo. Si pregunta si tambien borra los datos del sitio, responde que NO:
+     ese borrado se llevaria los datos de todas tus apps (Asistencia, Tareas y Ajedrez).
+  5. Borra el repositorio Tareas-G.
 
 SUBIR A GITHUB PAGES
 Sube TODO el contenido de esta carpeta (no la carpeta dentro de otra): index.html, sw.js,
@@ -9,7 +17,7 @@ version.json, manifest.webmanifest, LEEME.txt, icon-192.png e icon-512.png.
 La primera vez: Settings > Pages > Deploy from a branch > main / root.
 
 INSTALAR: abre el enlace con internet una vez, espera a que cargue y usa "Instalar aplicacion".
-Queda un icono verde "Tareas G", aparte de "Tareas" (Tareas-P30) y de Asistencia.
+Queda un icono verde "Tareas", aparte de "Tareas P30" (la anterior) y de Asistencia.
 
 PRIMER USO: Ajustes > Configuracion (nombre). Alumnos > "Traer alumnos de Asistencia" o
 "Agregar a mano". Calificar > "Crear evaluacion nueva".
